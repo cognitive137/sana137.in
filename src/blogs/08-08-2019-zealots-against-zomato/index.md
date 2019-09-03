@@ -1,9 +1,10 @@
 ---
 path: '/zealots-against-zomato'
-date: '08-08-2019'
+date: '2019-08-08'
 title: 'Zealots against Zomato'
 tags: ['religion', 'food', 'discrimination', 'zomato', 'faith']
 cover: 'https://images.unsplash.com/photo-1526367790999-0150786686a2'
+excerpt: 'Zeal'
 ---
 
 I can't justify someone's request to not have a particular person as the SPL because she is of a particular religion. Judging here on the basis of the faith they hold is not the right criterion because that will have no effect on what services you expect from them. Just like letting someone not be a doctor because they are fat, or not hiring a driver who wakes up in the middle of the night, strap up for a while and goes back to sleep.

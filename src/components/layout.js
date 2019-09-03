@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
+          author
           description
           name
           title
@@ -37,16 +38,18 @@ const Layout = ({ children }) => {
       />
       <div
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          minHeight: `80vh`,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
+          ...siteMain,
+          ...outer,
+          minHeight: `75vh`,
         }}
       >
-        <main>{children}</main>
+        <main style={inner}>{children}</main>
       </div>
-      <Footer name={site.siteMetadata.name} />
+      <Footer
+        author={site.siteMetadata.author}
+        name={site.siteMetadata.name}
+        style={{ ...siteFooter, ...outer }}
+      />
     </div>
   );
 };
@@ -56,3 +59,26 @@ Layout.propTypes = {
 };
 
 export default Layout;
+
+const inner = {
+  margin: `0 auto`,
+  maxWidth: `960px`,
+  width: `100%`,
+};
+
+const outer = {
+  padding: `0 4vw`,
+  position: `relative`,
+};
+
+const siteFooter = {
+  color: `white`,
+  paddingBottom: `60px`,
+  paddingTop: `20px`,
+  position: `relative`,
+};
+
+const siteMain = {
+  flexGrow: `1`,
+  zIndex: `100`,
+};
