@@ -1,35 +1,27 @@
-import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Header = ({ siteTitle, description }) => (
-  <header style={{ background: `#F0DB4F`, marginBottom: `1.45rem` }}>
-    <div
+const Header = ({ siteTitle, description, headerImg }) => {
+  return (
+    <header
       style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        // padding: `1.45rem 1.0875rem`,
-        padding: `1.45rem 0`,
+        backgroundColor: `#FFDD3D`,
+        backgroundImage: `url(${headerImg})`,
       }}
+      className={'site-header outer'}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `#323330`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-      <br />
-      <h4 style={{ color: 'rgba(0, 0, 0, 0.7)', marginBottom: 0 }}>
-        {description}
-      </h4>
-    </div>
-  </header>
-);
+      <div className={'inner'}>
+        <div className={'site-header-content'}>
+          <h1 style={{ margin: 0 }} className={'site-title'}>
+            {siteTitle}
+          </h1>
+          <br />
+          <h2 className={'site-description'}>{description}</h2>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

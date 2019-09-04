@@ -110,7 +110,7 @@ body {
   padding-top: 12px;
   padding-bottom: 12px;
   color: #fff;
-  background: color(var(--darkgrey) l(-5%)) no-repeat center center;
+  background: #090a0b no-repeat 50%;
   background-size: cover;
 }
 
@@ -1356,7 +1356,7 @@ Usage (In Ghost editor):
 .author-card-button {
   display: block;
   padding: 9px 16px;
-  border: color(var(--midgrey) l(+20%)) 1px solid;
+  border: #aebbc1 1px solid;
   color: var(--midgrey);
   font-size: 1.2rem;
   line-height: 1;
@@ -1879,7 +1879,7 @@ Usage (In Ghost editor):
 }
 
 .post-template .post-content > p:first-child {
-  font-size: 1.25em;
+  /* font-size: 1.25em; */
   line-height: 1.5em;
 }
 
@@ -2257,7 +2257,7 @@ Usage (In Ghost editor):
   padding-top: 20px;
   padding-bottom: 60px;
   color: #fff;
-  background: color(var(--darkgrey) l(-15%));
+  background: #000;
 }
 
 .site-footer-content {
