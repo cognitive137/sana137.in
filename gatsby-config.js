@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `sana137.in`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `black`,
