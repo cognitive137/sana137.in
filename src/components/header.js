@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
-const Header = ({ siteTitle, description, headerImg }) => {
+const Header = ({ siteTitle, description, headerImg, hideName }) => {
+  const data = useStaticQuery(graphql`
+    query getHomeName {
+      site {
+        siteMetadata {
+          homeName
+        }
+      }
+    }
+  `);
+  const { homeName } = data.site.siteMetadata;
   return (
     <header
       style={{
-        backgroundColor: `#FFDD3D`,
+        backgroundColor: `#86BD26`,
         backgroundImage: `url(${headerImg})`,
       }}
       className={'site-header outer'}
@@ -17,6 +28,7 @@ const Header = ({ siteTitle, description, headerImg }) => {
           </h1>
           <br />
           <h2 className={'site-description'}>{description}</h2>
+          {!hideName && <h2>{homeName}</h2>}
         </div>
       </div>
     </header>

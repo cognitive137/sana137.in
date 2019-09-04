@@ -6,7 +6,8 @@ module.exports = {
     name: `Sanā Habeeb`,
     photo: `https://pbs.twimg.com/profile_images/1116312044951744512/z9hsCRB7_400x400.jpg`,
     siteUrl: `http://sana137.in`,
-    title: `Sanaa’s stories`,
+    title: `Sana’s stories`,
+    homeName: `サナ`,
   },
   plugins: [
     `gatsby-transformer-remark`,

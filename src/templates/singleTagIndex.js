@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Header from '../components/header';
+import ComplexHeader from '../components/complexHeader';
 import Footer from '../components/footer';
 
 const AllTagsTemplate = ({ data, pageContext }) => {
@@ -9,7 +9,11 @@ const AllTagsTemplate = ({ data, pageContext }) => {
   return (
     <div className={'tag-template tag-movie-reviews'}>
       <div className={'site-wrapper'}>
-        <Header siteTitle={tag.toUpperCase()} description={desc} />
+        <ComplexHeader
+          siteTitle={tag.toUpperCase()}
+          description={desc}
+          hideName={true}
+        />
         <main id={'site-main'} className={'site-main outer'}>
           <div className={'inner'}>
             <div className={'post-feed'}>

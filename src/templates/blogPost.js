@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Footer from '../components/footer';
-import Header from '../components/header';
+import TinyHeader from '../components/tinyHeader';
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const {
@@ -41,7 +41,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
   return (
     <div className={'post-template'}>
       <div className={'site-wrapper'}>
-        <Header />
+        <TinyHeader />
         <main id={'site-main'} className={'site-main outer'}>
           <div className={'inner'}>
             <article className={'post-full post'}>

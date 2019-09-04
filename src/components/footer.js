@@ -2,29 +2,9 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Footer = ({ name, author }) => (
-  <footer
-    // style={{ background: `#323330` }}
-    className={'site-footer outer'}
-  >
-    <div
-      // style={{
-      //   color: `#fff`,
-      //   fontSize: '13px',
-      //   margin: `0 auto`,
-      //   maxWidth: 960,
-      //   padding: `1.45rem 1.0875rem`,
-      //   verticalAlign: `middle`,
-      // }}
-      // style={{
-      //   ...siteFooterContent,
-      //   ...inner,
-      //   fontSize: '13px',
-      //   margin: `0 auto`,
-      //   padding: `1.45rem 0`,
-      // }}
-      className={'site-footer-content inner'}
-    >
+const Footer = ({ author, name, style }) => (
+  <footer className={'site-footer outer'} style={{ ...style }}>
+    <div className={'site-footer-content inner'}>
       <section className={'copyright'}>
         <a href={`https://www.twitter.com/${author}`}>{name}</a> ©{' '}
         {new Date().getFullYear()}
