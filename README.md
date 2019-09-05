@@ -1,3 +1,16 @@
+## First things first
+
+Follow these steps after cloning this repository:
+
+```bash
+npm i -D # install dependencies
+gatsby build # create production website
+cd public
+git remote add origin https://github.com/cognitive137/sana137.in.git
+git pull
+git push origin master
+```
+
 ## Adding new blogs
 
 1. Create a folder in `src/blogs`, say _`newBlogPost`_.
@@ -28,6 +41,16 @@ excerpt: 'Add excerpt here'
 3. Use the _`yyyy-mm-dd`_ date format.
 
 4. Make sure path starts with **`/`**, and is unique.
+
+## Updating the website
+
+Run the following commands to update the website:
+
+```bash
+gatsby build
+cd public
+git push
+```
 
 ## Note about styling
 
