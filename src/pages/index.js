@@ -64,7 +64,9 @@ export default function IndexPage(props) {
                   >
                     <header className="postCardHeader">
                       <span className={'post-card-tags'}>
-                        {frontmatter.tags ? frontmatter.tags[0] + ` • ` : ``}{' '}
+                        {frontmatter.tags && frontmatter.tags[0].length
+                          ? frontmatter.tags[0] + ` • `
+                          : ``}{' '}
                         {publishDate}
                       </span>
                       <h2 className={'post-card-title'}>{frontmatter.title}</h2>
