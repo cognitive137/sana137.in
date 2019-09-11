@@ -6,7 +6,7 @@ Follow these steps after cloning this repository:
 npm i -D # install dependencies
 gatsby build # create production website
 cd public
-git remote add origin https://github.com/cognitive137/sana137.in.git
+git remote add origin https://github.com/cognitive137/sana137.git
 git pull
 git push origin master
 ```
