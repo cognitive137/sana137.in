@@ -3,21 +3,51 @@ import { graphql, Link } from 'gatsby';
 import Footer from '../components/footer';
 import TinyHeader from '../components/tinyHeader';
 
-const BlogPostTemplate = ({ data, pageContext }) => {
-  const {
-    cover,
-    date,
-    description,
-    next,
-    prev,
-    tags,
-    author: twitterHandle,
-    name,
-    photo,
-  } = pageContext;
-  const tempTags = [...tags];
-  const newTags = [];
-  while (tempTags.length > 1) {
+class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    const pathSlug = this.props.pageContext.pathSlug;
+    var disqus_config = function() {
+      this.page.url = 'https://sana137.in';
+      this.page.identifier = { pathSlug };
+    };
+    (function() {
+      // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement('script');
+      s.src = 'https://sana137.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+    if (disqus_config); // only to avoid warning 'disqus_thread' was never used.
+  }
+  render() {
+    const { data, pageContext } = this.props;
+    const {
+      author: twitterHandle,
+      cover,
+      date,
+      description,
+      name,
+      next,
+      photo,
+      prev,
+      tags,
+    } = pageContext;
+    const tempTags = [...tags];
+    const newTags = [];
+    while (tempTags.length > 1) {
+      let tag = tempTags.shift().toLowerCase();
+      newTags.push(
+        <Link
+          to={`/tags/${tag}`}
+          style={{ textTransform: `capitalize` }}
+          key={tag}
+        >
+          {tag}
+        </Link>
+      );
+      newTags.push(' • ');
+    }
     let tag = tempTags.shift().toLowerCase();
     newTags.push(
       <Link
@@ -28,148 +58,140 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         {tag}
       </Link>
     );
-    newTags.push(' • ');
-  }
-  let tag = tempTags.shift().toLowerCase();
-  newTags.push(
-    <Link to={`/tags/${tag}`} style={{ textTransform: `capitalize` }} key={tag}>
-      {tag}
-    </Link>
-  );
-  const title = data.markdownRemark.frontmatter.title;
-  const html = data.markdownRemark.html;
-  return (
-    <div className={'post-template'}>
-      <div className={'site-wrapper'}>
-        <TinyHeader />
-        <main id={'site-main'} className={'site-main outer'}>
-          <div className={'inner'}>
-            <article className={'post-full post'}>
-              <header className={'post-full-header'}>
-                <section className={'post-full-meta'}>
-                  <time className={'post-full-meta-date'} dateTime={date}>
-                    {new Date(date).toDateString()}
-                  </time>
-                </section>
-                <h1 className={'post-full-title'}>{title}</h1>
-                <span>{newTags}</span>
-              </header>
-              <figure
-                className={'post-full-image'}
-                style={{ backgroundImage: `url(${cover})` }}
-              />
-              <section className={'post-full-content'}>
-                <div
-                  className={'post-content'}
-                  dangerouslySetInnerHTML={{ __html: html }}
-                />
-              </section>
-              <footer className={'post-full-footer'}>
-                <section className={'author-card'}>
-                  <a
-                    href={`https://www.twitter.com/${twitterHandle}`}
-                    className={'author-profile-image'}
-                  >
-                    <img src={photo} className={'avatar-wrapper'} alt={name} />
-                  </a>
-                  <section className={'author-card-content'}>
-                    <h4 className={'author-card-name'}>{name}</h4>
-                    <p>{description}</p>
+    const title = data.markdownRemark.frontmatter.title;
+    const html = data.markdownRemark.html;
+    return (
+      <div className={'post-template'}>
+        <div className={'site-wrapper'}>
+          <TinyHeader />
+          <main id={'site-main'} className={'site-main outer'}>
+            <div className={'inner'}>
+              <article className={'post-full post'}>
+                <header className={'post-full-header'}>
+                  <section className={'post-full-meta'}>
+                    <time className={'post-full-meta-date'} dateTime={date}>
+                      {new Date(date).toDateString()}
+                    </time>
                   </section>
+                  <h1 className={'post-full-title'}>{title}</h1>
+                  <span>{newTags}</span>
+                </header>
+                <figure
+                  className={'post-full-image'}
+                  style={{ backgroundImage: `url(${cover})` }}
+                />
+                <section className={'post-full-content'}>
+                  <div
+                    className={'post-content'}
+                    dangerouslySetInnerHTML={{ __html: html }}
+                  />
                 </section>
-                <div className={'post-full-footer-right'}>
-                  <Link to={'/'} className={'author-card-button'}>
-                    Read More
-                  </Link>
-                </div>
-              </footer>
-            </article>
-          </div>
-        </main>
-        <aside className={'read-next outer'}>
-          <div className={'inner'}>
-            <div className={'read-next-feed'}>
-              {next && (
-                <article className={'post-card post'}>
-                  <Link
-                    className={'post-card-image-link'}
-                    to={next.frontmatter.path}
-                  >
-                    <div
-                      className={'post-card-image'}
-                      style={{
-                        backgroundImage: `url(${next.frontmatter.cover})`,
-                      }}
-                    />
-                  </Link>
-                  <div className={'post-card-content'}>
+                <footer className={'post-full-footer'}>
+                  <section className={'author-card'}>
+                    <a
+                      href={`https://www.twitter.com/${twitterHandle}`}
+                      className={'author-profile-image'}
+                    >
+                      <img
+                        src={photo}
+                        className={'avatar-wrapper'}
+                        alt={name}
+                      />
+                    </a>
+                    <AuthorCardContent name={name} description={description} />
+                  </section>
+                  <ReadMore />
+                </footer>
+                <section className={'post-full-comments'}>
+                  <div id="disqus_thread"></div>
+                </section>
+              </article>
+            </div>
+          </main>
+          <aside className={'read-next outer'}>
+            <div className={'inner'}>
+              <div className={'read-next-feed'}>
+                {next && (
+                  <article className={'post-card post'}>
                     <Link
-                      className={'post-card-content-link'}
+                      className={'post-card-image-link'}
                       to={next.frontmatter.path}
                     >
-                      <header className={'post-card-header'}>
-                        <span className={'post-card-tags'}>
-                          {next.frontmatter.tags
-                            ? next.frontmatter.tags[0] + ' • '
-                            : ''}
-                          {new Date(next.frontmatter.date).toDateString()}
-                        </span>
-                        <h2 className={'post-card-title'}>
-                          {next.frontmatter.title}
-                        </h2>
-                      </header>
-                      <section className={'post-card-excerpt'}>
-                        <p>{next.frontmatter.excerpt}</p>
-                      </section>
+                      <div
+                        className={'post-card-image'}
+                        style={{
+                          backgroundImage: `url(${next.frontmatter.cover})`,
+                        }}
+                      />
                     </Link>
-                  </div>
-                </article>
-              )}
-              {prev && (
-                <article className={'post-card post'}>
-                  <Link
-                    className={'post-card-image-link'}
-                    to={prev.frontmatter.path}
-                  >
-                    <div
-                      className={'post-card-image'}
-                      style={{
-                        backgroundImage: `url(${prev.frontmatter.cover})`,
-                      }}
-                    />
-                  </Link>
-                  <div className={'post-card-content'}>
+                    <div className={'post-card-content'}>
+                      <Link
+                        className={'post-card-content-link'}
+                        to={next.frontmatter.path}
+                      >
+                        <header className={'post-card-header'}>
+                          <span className={'post-card-tags'}>
+                            {next.frontmatter.tags
+                              ? next.frontmatter.tags[0] + ' • '
+                              : ''}
+                            {new Date(next.frontmatter.date).toDateString()}
+                          </span>
+                          <h2 className={'post-card-title'}>
+                            {next.frontmatter.title}
+                          </h2>
+                        </header>
+                        <section className={'post-card-excerpt'}>
+                          <p>{next.frontmatter.excerpt}</p>
+                        </section>
+                      </Link>
+                    </div>
+                  </article>
+                )}
+                {prev && (
+                  <article className={'post-card post'}>
                     <Link
-                      className={'post-card-content-link'}
+                      className={'post-card-image-link'}
                       to={prev.frontmatter.path}
                     >
-                      <header className={'post-card-header'}>
-                        <span className={'post-card-tags'}>
-                          {prev.frontmatter.tags
-                            ? prev.frontmatter.tags[0] + ' • '
-                            : ''}
-                          {new Date(prev.frontmatter.date).toDateString()}
-                        </span>
-                        <h2 className={'post-card-title'}>
-                          {prev.frontmatter.title}
-                        </h2>
-                      </header>
-                      <section className={'post-card-excerpt'}>
-                        <p>{prev.frontmatter.excerpt}</p>
-                      </section>
+                      <div
+                        className={'post-card-image'}
+                        style={{
+                          backgroundImage: `url(${prev.frontmatter.cover})`,
+                        }}
+                      />
                     </Link>
-                  </div>
-                </article>
-              )}
+                    <div className={'post-card-content'}>
+                      <Link
+                        className={'post-card-content-link'}
+                        to={prev.frontmatter.path}
+                      >
+                        <header className={'post-card-header'}>
+                          <span className={'post-card-tags'}>
+                            {prev.frontmatter.tags
+                              ? prev.frontmatter.tags[0] + ' • '
+                              : ''}
+                            {new Date(prev.frontmatter.date).toDateString()}
+                          </span>
+                          <h2 className={'post-card-title'}>
+                            {prev.frontmatter.title}
+                          </h2>
+                        </header>
+                        <section className={'post-card-excerpt'}>
+                          <p>{prev.frontmatter.excerpt}</p>
+                        </section>
+                      </Link>
+                    </div>
+                  </article>
+                )}
+              </div>
             </div>
-          </div>
-        </aside>
-        <Footer />
+          </aside>
+          <Footer />
+        </div>
       </div>
-    </div>
-  );
-};
-
+    );
+  }
+}
 export const query = graphql`
   query($pathSlug: String!) {
     markdownRemark(frontmatter: { path: { eq: $pathSlug } }) {
@@ -181,3 +203,18 @@ export const query = graphql`
   }
 `;
 export default BlogPostTemplate;
+
+const ReadMore = () => (
+  <div className={'post-full-footer-right'}>
+    <Link to={'/'} className={'author-card-button'}>
+      Read More
+    </Link>
+  </div>
+);
+
+const AuthorCardContent = ({ name, description }) => (
+  <section className={'author-card-content'}>
+    <h4 className={'author-card-name'}>{name}</h4>
+    <p>{description}</p>
+  </section>
+);
