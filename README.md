@@ -6,6 +6,10 @@ For updating the website:
 yarn depoly
 ```
 
+1. Go to [Settings](https://github.com/cognitive137/sana137.in/settings).
+2. Look for "GitHub Pages" from bottom.
+3. Update "Custom domain" accordingly.
+
 ## Adding new blogs
 
 1. Create a folder in `src/blogs`, say _`newBlogPost`_.
