@@ -1,8 +1,8 @@
 {
-  "private": true,
-  "description": "Sanā's blog",
-  "version": "0.1.0",
   "author": "Agastya <me@hanabi.in>",
+  "bugs": {
+    "url": "https://github.com/cognitive137/sana137.in/issues"
+  },
   "dependencies": {
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
@@ -19,27 +19,30 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1"
   },
+  "description": "Sanā's blog",
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
   },
+  "homepage": "https://cognitive137.github.io/sana137.in",
   "keywords": [
     ""
   ],
   "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cognitive137/sana137.in"
+  },
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
     "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cognitive137/sana137.in"
-  },
-  "bugs": {
-    "url": "https://github.com/cognitive137/sana137.in/issues"
-  }
+  "version": "0.1.0"
 }
