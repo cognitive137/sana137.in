@@ -1,14 +1,9 @@
 ## First things first
 
-Follow these steps after cloning this repository:
+For updating the website:
 
-```bash
-npm i -D # install dependencies
-gatsby build # create production website
-cd public
-git remote add origin https://github.com/cognitive137/sana137.git
-git pull
-git push origin master
+```zsh
+yarn depoly
 ```
 
 ## Adding new blogs
@@ -16,6 +11,23 @@ git push origin master
 1. Create a folder in `src/blogs`, say _`newBlogPost`_.
 2. In the folder _`newBlogPost`_, create a markdown file **`index.md`**.
 3. Put the content of the blog in the **`index.md`** file.
+
+## Adding background to tags
+
+Adding cover to tags is handled via an array of objects. That array is located at `./src/tagData/index.js`.
+
+That file contains an array `tagData`. Each element of `tagData`, must be an object, with two keys, `tag` and `cover`.
+
+Each object should match:
+
+```javascript
+{
+  tag: 'unique tag here',
+  cover: 'www.example.com/path/to/cover'
+}
+```
+
+Make sure you don't repeat tags, else none will be chosen.
 
 ## Frontmatter
 
