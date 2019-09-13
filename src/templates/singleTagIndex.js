@@ -3,16 +3,19 @@ import { Link } from 'gatsby';
 import ComplexHeader from '../components/complexHeader';
 import Footer from '../components/footer';
 
-const AllTagsTemplate = ({ data, pageContext }) => {
-  const { posts, tag } = pageContext;
+const SingleTagTemplate = ({ pageContext }) => {
+  const { cover, posts, tag } = pageContext;
+  /* eslint eqeqeq: "off" */
+  const bgImg = cover.length == 1 ? cover[0].cover : '';
   const desc = `Essay${posts.length > 1 ? 's' : ''} about ${tag}.`;
   return (
-    <div className={'tag-template tag-movie-reviews'}>
+    <div className={'tag-template'}>
       <div className={'site-wrapper'}>
         <ComplexHeader
           siteTitle={tag.toUpperCase()}
           description={desc}
           hideName={true}
+          headerImg={bgImg}
         />
         <main id={'site-main'} className={'site-main outer'}>
           <div className={'inner'}>
@@ -63,4 +66,4 @@ const AllTagsTemplate = ({ data, pageContext }) => {
   );
 };
 
-export default AllTagsTemplate;
+export default SingleTagTemplate;
