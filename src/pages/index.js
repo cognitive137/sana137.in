@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { graphql, Link } from 'gatsby';
 
+require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 export const query = graphql`
   query BlogPostList {
     site {

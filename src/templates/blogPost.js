@@ -76,10 +76,12 @@ class BlogPostTemplate extends React.Component {
                   <h1 className={'post-full-title'}>{title}</h1>
                   <span>{newTags}</span>
                 </header>
-                <figure
-                  className={'post-full-image'}
-                  style={{ backgroundImage: `url(${cover})` }}
-                />
+                {cover && (
+                  <figure
+                    className={'post-full-image'}
+                    style={{ backgroundImage: `url(${cover})` }}
+                  />
+                )}
                 <section className={'post-full-content'}>
                   <div
                     className={'post-content'}
