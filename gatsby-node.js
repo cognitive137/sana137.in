@@ -1,4 +1,5 @@
 const path = require('path');
+const tagData = require('./src/tagData');
 
 const createTagPages = (createPage, posts) => {
   const allTagsIndexTemplate = path.resolve('src/templates/allTagsIndex.js');
@@ -30,11 +31,12 @@ const createTagPages = (createPage, posts) => {
 
   tags.forEach(tag => {
     const posts = postsByTag[tag];
-
+    const cover = tagData.filter(el => el.tag == tag);
     createPage({
       path: `/tags/${tag}`,
       component: singleTagIndexTemplate,
       context: {
+        cover,
         posts,
         tag,
       },
