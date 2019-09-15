@@ -39,12 +39,14 @@ In every blog post, it is necessary to start the blog post with the following co
 
 ```markdown
 ---
-path: '/uri-to-blog-post'
+cover: 'www.example.com/path/to/cover/img'
 date: 'yyyy-mm-dd'
-title: 'Blog Post’s Title'
-tags: ['some', 'tags', 'in', 'lowercase']
-cover: 'www.example.com/path/to/cover/img?compulsory=true'
 excerpt: 'Add excerpt here'
+page: 'true/false'
+path: '/uri-to-blog-post'
+tags: ['some', 'tags', 'in', 'lowercase']
+title: 'Blog Post’s Title'
+
 ---
 ```
 
