@@ -3,6 +3,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { graphql, Link } from 'gatsby';
+import moment from 'moment';
 
 require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 export const query = graphql`
@@ -46,7 +47,7 @@ export default function IndexPage(props) {
         <div className={'post-feed'}>
           {edges.map((edge, index) => {
             const { frontmatter } = edge.node;
-            const publishDate = new Date(frontmatter.date).toDateString();
+            const published = moment(frontmatter.date).fromNow();
             const cover = frontmatter.cover;
             return (
               <article className={'post-card'} key={frontmatter.path}>
@@ -68,7 +69,7 @@ export default function IndexPage(props) {
                         {frontmatter.tags && frontmatter.tags[0].length
                           ? frontmatter.tags[0] + ` • `
                           : ``}{' '}
-                        {publishDate}
+                        {published}
                       </span>
                       <h2 className={'post-card-title'}>{frontmatter.title}</h2>
                     </header>

@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import Footer from '../components/footer';
 import TinyHeader from '../components/tinyHeader';
+import moment from 'moment';
 
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
@@ -136,7 +137,7 @@ class BlogPostTemplate extends React.Component {
                             {next.frontmatter.tags
                               ? next.frontmatter.tags[0] + ' • '
                               : ''}
-                            {new Date(next.frontmatter.date).toDateString()}
+                            {moment(next.frontmatter.date).fromNow()}
                           </span>
                           <h2 className={'post-card-title'}>
                             {next.frontmatter.title}
@@ -172,7 +173,7 @@ class BlogPostTemplate extends React.Component {
                             {prev.frontmatter.tags
                               ? prev.frontmatter.tags[0] + ' • '
                               : ''}
-                            {new Date(prev.frontmatter.date).toDateString()}
+                            {moment(prev.frontmatter.date).fromNow()}
                           </span>
                           <h2 className={'post-card-title'}>
                             {prev.frontmatter.title}

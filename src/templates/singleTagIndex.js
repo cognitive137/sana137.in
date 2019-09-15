@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import ComplexHeader from '../components/complexHeader';
 import Footer from '../components/footer';
+import moment from 'moment';
 
 const SingleTagTemplate = ({ pageContext }) => {
   const { cover, posts, tag } = pageContext;
@@ -43,8 +44,7 @@ const SingleTagTemplate = ({ pageContext }) => {
                     >
                       <header className={'post-card-header'}>
                         <span className={'post-card-tags'}>
-                          {tag} •{' '}
-                          {new Date(post.frontmatter.date).toDateString()}
+                          {tag} • {moment(post.frontmatter.date).fromNow()}
                         </span>
                         <h2 className={'post-card-title'}>
                           {post.frontmatter.title}
