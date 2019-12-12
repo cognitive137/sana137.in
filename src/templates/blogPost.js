@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Footer from '../components/footer';
 import TinyHeader from '../components/tinyHeader';
 import moment from 'moment';
+import 'katex/dist/katex.min.css';
 
 class BlogPostTemplate extends React.Component {
   componentDidMount() {
