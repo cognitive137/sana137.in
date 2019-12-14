@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Footer from '../components/footer';
 import TinyHeader from '../components/tinyHeader';
 import moment from 'moment';
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
+import { Disqus } from 'gatsby-plugin-disqus';
 
 import 'katex/dist/katex.min.css';
 
@@ -40,11 +40,12 @@ function BlogPostTemplate({ data, pageContext }) {
       {tag}
     </Link>
   );
-  const title = data.markdownRemark.frontmatter.title;
+  const { path, title } = data.markdownRemark.frontmatter;
+  const { siteUrl } = data.site.siteMetadata;
   const html = data.markdownRemark.html;
   const disqusConfig = {
-    url: window.location.href,
-    identifier: window.location.pathname,
+    url: `${siteUrl} + ${path}`,
+    identifier: path,
     title: title,
   };
   return (
@@ -182,6 +183,12 @@ export const query = graphql`
       html
       frontmatter {
         title
+        path
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
