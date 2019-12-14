@@ -10,6 +10,12 @@ module.exports = {
     homeName: `サナ`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `sana137`,
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-transformer-remark`,
