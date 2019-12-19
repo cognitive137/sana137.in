@@ -6,7 +6,7 @@ module.exports = {
     name: `Sana`,
     photo: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQMmVLtfjxqwhKZ7MR9I8SIn9s3LsN7l9z7vuIfjzYt97fN3B7&s`,
     siteUrl: `https://sana137.in`,
-    title: `Sanah's stories`,
+    title: `Sana's stories`,
     homeName: `サナ`,
   },
   plugins: [
