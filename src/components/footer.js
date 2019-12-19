@@ -8,8 +8,8 @@ const Footer = ({ author, name, style }) => (
   <footer className={'site-footer outer'} style={{ ...style }}>
     <div className={'site-footer-content inner'}>
       <section className={'copyright'}>
-        <a href={`https://www.twitter.com/${author}`}>{name}</a> ©{' '}
-        {new Date().getFullYear()}
+        {/* <a href={`https://www.twitter.com/${author}`}>{name}</a> ©{' '} */}
+        {name} © {new Date().getFullYear()}
       </section>
       <nav className={'site-footer-nav'}>
         <Link to="/">Latest Posts</Link>

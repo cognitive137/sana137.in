@@ -78,12 +78,13 @@ function BlogPostTemplate({ data, pageContext }) {
               </section>
               <footer className={'post-full-footer'}>
                 <section className={'author-card'}>
-                  <a
+                  {/* <a
                     href={`https://www.twitter.com/${twitterHandle}`}
                     className={'author-profile-image'}
                   >
                     <img src={photo} className={'avatar-wrapper'} alt={name} />
-                  </a>
+                  </a> */}
+                  <img src={photo} className={'avatar-wrapper'} alt={name} />
                   <AuthorCardContent name={name} description={description} />
                 </section>
                 <ReadMore />

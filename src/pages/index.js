@@ -83,10 +83,17 @@ export default function IndexPage(props) {
                     <ul className={'author-list'}>
                       <li className={'author-list-item'}>
                         <div className={'author-name-tooltip'}>{name}</div>
-                        <a
+                        {/* <a
                           href={`https://www.twitter.com/${twitterHandle}`}
                           className={'static-avatar'}
                         >
+                          <img
+                            src={photo}
+                            className={'avatar-wrapper'}
+                            alt={name}
+                          />
+                        </a> */}
+                        <a className={'static-avatar'}>
                           <img
                             src={photo}
                             className={'avatar-wrapper'}
