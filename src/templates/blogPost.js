@@ -84,7 +84,9 @@ function BlogPostTemplate({ data, pageContext }) {
                   >
                     <img src={photo} className={'avatar-wrapper'} alt={name} />
                   </a> */}
-                  <img src={photo} className={'avatar-wrapper'} alt={name} />
+                  <a className={'author-profile-image'}>
+                    <img src={photo} className={'avatar-wrapper'} alt={name} />
+                  </a>
                   <AuthorCardContent name={name} description={description} />
                 </section>
                 <ReadMore />
