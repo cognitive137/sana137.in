@@ -59,7 +59,7 @@ const TinyHeader = ({ homeName, siteUrl }) => {
         <ul className="nav" role="menu">
           <li className="nav-weblog" role="menuitem">
             <Link to={'/tags'} style={{ textTransform: `upper` }}>
-              #tags
+              Topics
             </Link>
           </li>
         </ul>

@@ -1,5 +1,9 @@
 {
-  "author": "Agastya <me@hanabi.in>",
+  "author": {
+    "email": "me@hanabi.in",
+    "name": "Agastya",
+    "url": "https://hanabi.in"
+  },
   "bugs": {
     "url": "https://github.com/cognitive137/sana137.in/issues"
   },
@@ -42,6 +46,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "clean": "rm -rf .cache public",
     "dev": "gatsby develop",
     "develop": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public",

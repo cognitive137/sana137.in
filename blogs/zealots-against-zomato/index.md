@@ -3,7 +3,7 @@ path: '/zealots-against-zomato'
 date: '2019-08-08'
 title: 'Zealots against Zomato'
 tags: ['religion', 'food', 'discrimination', 'zomato', 'faith']
-cover: 'https://images.unsplash.com/photo-1526367790999-0150786686a2'
+cover: 'https://images.unsplash.com/photo-1526367790999-0150786686a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80'
 excerpt: "I can't justify someone's request to not have a particular person as the SPL because she is of a particular religion. Judging here on the..."
 ---
 

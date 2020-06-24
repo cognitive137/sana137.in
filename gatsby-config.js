@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
     author: `Sana`,
-    description: `Welcome to my website!`,
-    headerImg: `https://images.unsplash.com/photo-1536633125620-8a3245c11ffa`,
+    description: `Hi, I am Sana!`,
+    headerImg: `https://images.unsplash.com/photo-1536633125620-8a3245c11ffa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2822&q=80`,
     name: `Sana`,
-    photo: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQMmVLtfjxqwhKZ7MR9I8SIn9s3LsN7l9z7vuIfjzYt97fN3B7&s`,
+    photo: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQMmVLtfjxqwhKZ7MR9I8SIn9s3LsN7l9z7vuIfjzYt97fN3B7&`,
     siteUrl: `https://sana137.in`,
-    title: `Sana's stories`,
+    title: `Welcome to my website!`,
     homeName: `サナ`,
   },
   plugins: [
@@ -40,7 +40,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/blogs`,
+        path: `${__dirname}/blogs`,
       },
     },
     `gatsby-plugin-react-helmet`,

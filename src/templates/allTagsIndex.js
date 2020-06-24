@@ -13,7 +13,7 @@ const AllTagsTemplate = ({ data, pageContext }) => {
           <div className={'inner'}>
             <article className={'post-full post page no-image'}>
               <header className={'post-full-header'}>
-                <h1 className={'post-full-title'}>#Tags</h1>
+                <h1 className={'post-full-title'}>Topics</h1>
               </header>
               <section className={'post-full-content'}>
                 <div className={'post-content'}>
