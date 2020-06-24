@@ -43,8 +43,8 @@ ComplexHeader.propTypes = {
 };
 
 ComplexHeader.defaultProps = {
-  siteTitle: `Sanaa’s stories`,
-  description: `Hi, I am Sanā!`,
+  siteTitle: `Sana's stories`,
+  description: `Hi, I am Sana!`,
 };
 
 export default ComplexHeader;

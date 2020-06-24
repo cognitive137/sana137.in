@@ -24,8 +24,8 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  name: `Sanā Habeeb`,
-  author: `@SanaHabeeb4`,
+  name: `Sana`,
+  author: `Sana`,
 };
 
 export default Footer;
