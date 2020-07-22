@@ -44,7 +44,7 @@ function BlogPostTemplate({ data, pageContext }) {
   const { siteUrl } = data.site.siteMetadata;
   const html = data.markdownRemark.html;
   const disqusConfig = {
-    url: `${siteUrl} + ${path}`,
+    url: `${siteUrl}${path}`,
     identifier: path,
     title: title,
   };
