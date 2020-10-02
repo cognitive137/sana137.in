@@ -33,6 +33,15 @@ module.exports = {
               inlineCodeMarker: 'λ',
             },
           },
+{
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+              ],
+              services: {
+              },
+            },
+          },
         ],
       },
     },
