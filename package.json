@@ -16,6 +16,7 @@
     "gatsby-plugin-offline": "^2.2.7",
     "gatsby-plugin-react-helmet": "^3.1.4",
     "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-remark-embedder": "^3.0.0",
     "gatsby-remark-katex": "^3.1.20",
     "gatsby-remark-prismjs": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.11",
